@@ -1,6 +1,7 @@
 import test from 'ava';
 import path from 'path';
 import sinon from 'sinon';
+import fs from 'fs-extra';
 import { fileURLToPath } from 'url';
 
 import File from '../../src/File.js';
@@ -9,6 +10,8 @@ import { context } from '../helpers/test.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const stubsDir = path.resolve(__dirname, 'stubs');
+
+test.afterEach(async () => await fs.emptyDir(stubsDir).catch(err => console.log(err)));
 
 test('that it can get the underlying files', t => {
     const files = ['path/to/file.js'];

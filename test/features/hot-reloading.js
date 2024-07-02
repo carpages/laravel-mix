@@ -5,8 +5,7 @@ import { context } from '../helpers/test.js';
 
 const hotFilePath = 'test/fixtures/app/dist/hot';
 
-test.afterEach(async () => await fs.unlink(hotFilePath).catch(() => {}));
-test.afterEach(async () => await fs.unlink(hotFilePath).catch(() => {}));
+test.afterEach(async () => await fs.unlink(hotFilePath).catch(err => console.log(err)));
 
 test('it creates a file to mark a request for hot reloading', async t => {
     const { mix, Mix, assert } = context(t);

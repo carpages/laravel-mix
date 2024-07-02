@@ -33,7 +33,6 @@ test.serial(
         file: 'autoprefixer.css',
         input: `@keyframes testing { to { color: red; } }`,
         expected: `
-        @-webkit-keyframes testing { to { color: red; } }
         @keyframes testing { to { color: red; } }
     `
     })
@@ -107,7 +106,6 @@ test.serial(
         // but this test will disable that. When we do so, we still
         // expect any postcss.config.js plugin to be loaded.
         expected: `
-        @-webkit-keyframes testing { to { color: red; } }
         @keyframes testing { to { color: red; } }
     `
     })
@@ -145,7 +143,6 @@ test.serial(
         expected: `
         :root { --some-color: red }
         .test { color: red; color: var(--some-color) }
-        @-webkit-keyframes testing { to { color: green } }
         @keyframes testing { to { color: green } }
     `
     })
